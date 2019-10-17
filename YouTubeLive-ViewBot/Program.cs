@@ -41,14 +41,12 @@ namespace YouTubeLive_ViewBot {
             _proxies = File.ReadAllLines(Console.ReadLine());
 
             Console.Write("Threads: ");
-
             int num = Convert.ToInt32(Console.ReadLine());
 
             ThreadPool.SetMinThreads(num, num);
-            try {
-                while (true) {
-                    Thread.Sleep(200); // wait 200ms inbetween threads to avoid system deadlock!
 
+            try {
+                for (var i = 0; i < num; i++) {
                     new Thread(ExecuteBot).Start();
                 }
             }
