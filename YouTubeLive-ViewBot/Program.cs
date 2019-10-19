@@ -6,8 +6,6 @@ using Leaf.xNet;
 
 namespace YouTubeLive_ViewBot {
     internal class Program {
-        internal const string Title = "YouTube livestream bot";
-
         internal static char RandomChar(Random rand) {
             return _charset[rand.Next(_charset.Length)];
         }
@@ -24,7 +22,7 @@ namespace YouTubeLive_ViewBot {
         }
 
         internal static void OnViewsChanged() {
-            Console.Title = $"{Title} | Views Sent: {_views.ToString()}";
+            Console.Title = $"{_title} | Views Sent: {_views.ToString()}";
         }
 
         [STAThread]
